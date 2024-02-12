@@ -4,6 +4,9 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
+def add2(n):
+    return n+2
+
 @app.route('/')
 def index():
 
