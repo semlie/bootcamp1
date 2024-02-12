@@ -1,17 +1,14 @@
-
 from os import name
-from flask import Flask, jsonify
+from service.dataManipulation import extract_products
+
+from flask import Flask
 app = Flask(__name__)
 
 
-def add2(n):
-    return n+2
-
 @app.route('/')
-def index():
+def products():
 
-    return jsonify(dict(name='John', age=25, city='New York'))
-
+    return extract_products()
 
 if __name__ == '__main__':
     app.run('127.0.0.1', port=8000,  debug=True)
