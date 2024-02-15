@@ -94,33 +94,38 @@ if __name__ == "__main__":
     
 
     
-    # Define the labels
-    labels = ["SMARTPHONE"]
+    # # Define the labels
+    # labels = ["SMARTPHONE"]
 
-    # Train the NER model
-    ner_model = train_ner_model(train_data, labels)
+    # # Train the NER model
+    # ner_model = train_ner_model(train_data, labels)
 
-    # Save the trained model
-    ner_model.to_disk("smartphone_ner_model")
+    # # Save the trained model
+    # ner_model.to_disk("smartphone_ner_model")
 
-    # Test the model
-    test_text = "The new iPhone was announced."
-    doc = ner_model(test_text)
+    # # Test the model
+    # test_text = "The new iPhone was announced."
+    # doc = ner_model(test_text)
  
         # Load the trained NER model
     ner_model = spacy.load("smartphone_ner_model")
 
     # Sample text to check
     data = extract_data()
-    # text = ' '.join(data)
-    text = "The iPhone 12 Pro Max is a  flagship smartphone produced by Apple Inc. It features a stunning 6.7-inch Super Retina XDR display and is powered by the A14 Bionic chip. The Samsung Galaxy S21 Ultra, on the other hand, boasts a massive 108MP camera and supports 8K video recording. Both of these smartphones offer cutting-edge technology and premium features."
+    text = ' '.join(data)
+  
 
     # Process the text with the NER model
     doc = ner_model(text)
 
     
     # Extract and print the predicted entities
-    for ent in doc.ents:
-        print(ent.text, ent.label_)
+ 
+    NER_RESULT = doc.text
+    print(NER_RESULT)
+
+
+
+
 
 
