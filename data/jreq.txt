@@ -1,1 +1,3 @@
 nltk
+webcolors
+country_list
