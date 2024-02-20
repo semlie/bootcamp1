@@ -1,5 +1,8 @@
 import pymongo
+import pickle
 from bson import ObjectId
+from bson import Binary
+
 import os 
 
 from dotenv import load_dotenv
@@ -13,7 +16,7 @@ CONNECTION_STRING =os.getenv('CONNECTION_STRING')
 
 client = pymongo.MongoClient(CONNECTION_STRING)
 db = client["bootcamp_team2"]  
-collection = db["users"]  
+collection = db["items"]  
 
 def create_document(data):
     result = collection.insert_one(data)
@@ -44,7 +47,22 @@ def delete_document(document_id):
 # update_document("65d246fe3d0f4ea8ab019a55", {"age": 745})
 # print("Updated document age to")
 
+
+def display_dictionaries(data):
+    for key, value in data.items():
+      print(f"  - {key}: {value}")
+      collection.insert_one(value)
+
 # deleted_count = delete_document("65d246fe3d0f4ea8ab019a55")
 # print("Deleted document:", deleted_count)
 
+
+with open('data/filterd.pkl', 'rb') as f:
+    data = pickle.load(f)
+display_dictionaries(data)
+
+
+
+
 client.close()
+
