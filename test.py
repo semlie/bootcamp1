@@ -8,13 +8,13 @@ intent_to_buy_words = [
     "Wtb", "Looking for", "Seeking", "Buying", "Wanting", "Purchasing",
     "In search of", "Interested in", "Acquiring", "Needing", "Hunting for",
     "Requesting", "Shopping for", "Hoping to buy", "Wanting to acquire","buy",
-    "Looking to buy"
+    "Looking to buy","purchase"
 ]
 
 both_intent_words = [
     "Trading", "Bartering", "Exchange", "Swap", "Trade-in", "Deal",
     "Negotiating", "Transaction", "Dealings", "Business", "Commerce",
-    "Market", "Exchange", "Offer", "Bid"
+    "Market", "Exchange", "Offer", "Bid","For sale or buying","Selling or buying"
 ]
 
 def check_intent(text):
