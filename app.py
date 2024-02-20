@@ -1,7 +1,12 @@
 
 from os import name
+import os
 from flask import Flask, jsonify
 app = Flask(__name__)
+from dotenv import load_dotenv
+
+load_dotenv()
+print(os.getenv('CONNECTION_STRING'))
 
 
 def add2(n):
