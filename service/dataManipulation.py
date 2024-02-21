@@ -1,6 +1,7 @@
 import pickle
 import re
 
+
 def extract_data():
     with open('data/filterd.pkl', 'rb') as file:
         data = pickle.load(file)
@@ -17,10 +18,9 @@ def extract_data():
     # Decode utf-8 bytes to string
     text = utf8_text.decode('utf-8')
 
-
-    return text
-    
-
+    # Write the text to a file
+    with open('filterd', 'w', encoding='utf-8') as txt_file:
+        txt_file.write(text)
 
 def create_smart_phone_list():
 
