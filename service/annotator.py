@@ -49,13 +49,15 @@ def generate_text_annotator():
         if brand_found or color_found:
             # Find the start and end indices of the word in the line
             start_index = text_data.find(line)
-            end_index = start_index + len(line)
+            
             if brand_found:
+                
                 wrod_in_line = line.find(brand)
-                print(wrod_in_line,start_index)
                 start_index_brand = start_index + wrod_in_line
                 end_index_brand = start_index_brand + len(brand)
+
             if color_found:
+
                 wrod_in_line = line.find(color)
                 start_index_color = start_index + wrod_in_line
                 end_index_color = start_index_color + len(color)
