@@ -28,6 +28,7 @@ def generate_text_annotator():
         print(word)
         for item in word_list:
             if item in word:
+                print(item,"__________________________")
                 return True, item
         return False, None
 
@@ -49,12 +50,21 @@ def generate_text_annotator():
             # Find the start and end indices of the word in the line
             start_index = text_data.find(line)
             end_index = start_index + len(line)
+            if brand_found:
+                wrod_in_line = line.find(brand)
+                print(wrod_in_line,start_index)
+                start_index_brand = start_index + wrod_in_line
+                end_index_brand = start_index_brand + len(brand)
+            if color_found:
+                wrod_in_line = line.find(color)
+                start_index_color = start_index + wrod_in_line
+                end_index_color = start_index_color + len(color)
 
             # Create annotation dictionary
             annotation = {
                 "entities": [
-                    [start_index, end_index, "BRAND"] if brand_found else None,
-                    [start_index, end_index, "COLOR"] if color_found else None
+                    [start_index_brand, end_index_brand, "BRAND"] if brand_found else None,
+                    [start_index_color, end_index_color, "COLOR"] if color_found else None
                 ]
             }
             annotations.append([line, annotation])
