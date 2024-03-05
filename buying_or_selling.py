@@ -8,16 +8,47 @@ mongo_connection = os.environ.get("MONGO_DB")
 client = MongoClient(mongo_connection)
 db = client.get_database()
 
+result_mongo = []
+result_local = []
+
 def get_data_from_mongodb():
     collection = db["items"]  
     data = collection.find()
+    calculate_of_data(data)
+
+
+def calculate_of_data(data):
+    global result_local
+    result_local = []
+    count_selling = 0
+    count_buying = 0
+    count_both = 0
+    count_other = 0
     for document in data:
-        # Extract massage_content from document and apply checks
         content = document["massage_content"]
         intent = check_intent(content)
-        print("Message content:", content)
-        print("Intent:", intent)
-        print("--------------")
+        if(intent=="selling"):
+            count_selling+=1
+            result_local.append('sale')
+        elif(intent=="buying"):
+            count_buying+=1
+            result_local.append('buy')
+        elif(intent=="both buying and selling"):
+            count_both+=1
+            result_local.append('both')
+        else:
+            count_other+1
+            result_local.append('other')
+    print_of_count_data(count_selling,count_buying,count_both,count_other)
+
+
+def print_of_count_data(count_selling,count_buying,count_both,count_other):
+    print("selling_me:",count_selling)
+    print("buying_me:",count_buying)
+    print("both buying and selling:",count_both)
+    print("other:",count_other)
+    print("--------------")
+
 
 def check_intent(text):
     intent_to_sell_words = [
@@ -51,6 +82,7 @@ def check_intent(text):
     else:
         return 'none of them!'
 
+
 def check_matching_errors(data):
     error_count = 0
     for item in data:
@@ -61,6 +93,26 @@ def check_matching_errors(data):
             error_count += 1
     return error_count
 
+
+def count_buy_and_sale(data):
+    global result_mongo
+    result_mongo = []
+    count_sale = 0
+    count_buy = 0
+
+    for item in data:
+        categoty = item["category"]
+        if(categoty=="sale"):
+            count_sale+=1
+            result_mongo.append('sale')
+        elif(categoty=="buy"):
+            count_buy+=1
+            result_mongo.append('buy')
+        else:
+            result_mongo.append('other')
+    print("sale_mongo:",count_sale)
+    print("buy_mongo:",count_buy)
+
 # Fetch data from MongoDB and apply checks
 get_data_from_mongodb()
 
@@ -70,6 +122,8 @@ total_items = db["items"].count_documents({})
 print("Total items:", total_items)
 print("Matching errors:", error_count)
 print("Percentage of matching errors: {:.2f}%".format((error_count / total_items) * 100))
+count_buy_and_sale(db["items"].find())
 
+print("result_local:",len(result_local))
+print("result_mongo:",len(result_mongo))
 
-client.close()
