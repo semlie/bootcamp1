@@ -1,9 +1,9 @@
-import pymongo
+import os 
 import pickle
+import pymongo
 from bson import ObjectId
 from bson import Binary
 
-import os 
 
 from dotenv import load_dotenv
 
@@ -19,14 +19,17 @@ db = client["bootcamp_team2"]
 collection = db["items"]  
 
 def create_document(data):
+    """craeting new data"""
     result = collection.insert_one(data)
     return result.inserted_id
 
 def read_documents(filter=None, projection=None):
+    """reading data"""
     cursor = collection.find(filter=filter, projection=projection)
     return list(cursor)
 
 def update_document(document_id, update_data):
+    """updating data"""
     result = collection.update_one({"_id": ObjectId(document_id)},
                                    
                                     {"$set": update_data},upsert=True
@@ -34,6 +37,7 @@ def update_document(document_id, update_data):
     return result.modified_count
 
 def delete_document(document_id):
+    """deleting data"""
     result = collection.delete_one({"_id": ObjectId(document_id)})
     return result.deleted_count
 
@@ -49,9 +53,11 @@ def delete_document(document_id):
 
 
 def display_dictionaries(data):
-    for key, value in data.items():
-      print(f"  - {key}: {value}")
-      collection.insert_one(value)
+    values = [value    for key, value in data.items()]
+    try:
+        collection.insert_many(values)
+    except Exception as e:
+        print(e)
 
 # deleted_count = delete_document("65d246fe3d0f4ea8ab019a55")
 # print("Deleted document:", deleted_count)
@@ -59,10 +65,11 @@ def display_dictionaries(data):
 
 with open('data/filterd.pkl', 'rb') as f:
     data = pickle.load(f)
-display_dictionaries(data)
+    display_dictionaries(data)
 
 
 
 
-client.close()
+
+# client.close()
 

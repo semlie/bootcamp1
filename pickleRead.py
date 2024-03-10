@@ -1,5 +1,4 @@
 import pickle
-
 def open_pickle_file(file_path):
   
   # Open the file in binary read mode
@@ -16,4 +15,16 @@ def open_pickle_file(file_path):
 # Example usage
 file_path ="data/filterd.pkl"
 data = open_pickle_file(file_path)
-print(f"Loaded data from pickle file: {data}")
+# print(f"Loaded data from pickle file: {data}")
+
+
+def display_dictionaries(data):
+    for key, value in data.items():
+      print(f"  - {key}: {value}")
+      
+display_dictionaries(data)
+    
+
+
+    
+
