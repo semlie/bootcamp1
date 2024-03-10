@@ -65,9 +65,13 @@ def update_items():
 #     mongoConnect.collection.insert_one(new_data)
 #     return "Data added successfully", 201
 
+
 @app.route('/')
 def index():
-    return jsonify(dict(name='John', age=25, city='gdfg')) 
+    '''
+    Index page
+    '''
+    return jsonify(dict(name='John', age=25, city='New York'))
 
 
 if __name__ == '__main__':
