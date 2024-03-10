@@ -1,8 +1,9 @@
 # assuming your function is in app.py
-from bootcamp1.app import add2
 import unittest
 import os
 import sys
+from bootcamp1.app import add2
+
 DIR = os.path.dirname(os.path.dirname(__file__))  # The repo root directory
 sys.path.append(DIR)
 
