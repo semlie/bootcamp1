@@ -1,8 +1,9 @@
-import os 
+"""imports"""
+
+import os  
 import pickle
 import pymongo
 from bson import ObjectId
-from bson import Binary
 
 
 from dotenv import load_dotenv
@@ -41,18 +42,8 @@ def delete_document(document_id):
     result = collection.delete_one({"_id": ObjectId(document_id)})
     return result.deleted_count
 
-# Example usage
-# new_document_id = create_document({"name": "nadavv", "age": 151})
-# print("Created document with ID:", new_document_id)
-
-# documents = read_documents(filter={"age": {"$gt": 25}}, projection={"name": 1, "_id": 0})
-# print("Documents with age over 25 (names only):", documents)
-
-# update_document("65d246fe3d0f4ea8ab019a55", {"age": 745})
-# print("Updated document age to")
-
-
 def display_dictionaries(data):
+    """insert data into database"""
     values = [value    for key, value in data.items()]
     try:
         collection.insert_many(values)
