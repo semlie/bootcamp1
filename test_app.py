@@ -2,7 +2,7 @@
 import unittest
 import os
 import sys
-from bootcamp1.app import add2
+from .app import add2
 
 DIR = os.path.dirname(os.path.dirname(__file__))  # The repo root directory
 sys.path.append(DIR)
