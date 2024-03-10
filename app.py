@@ -1,8 +1,14 @@
-'''
- This is a simple Flask app that returns a JSON object. The app is running on port 8000.
-'''
-from flask import Flask, jsonify
+"""imports"""
+import os
+import json
+from dotenv import load_dotenv
+from flask import Flask, jsonify, request
+from .db import mongoConnect
+
 app = Flask(__name__)
+
+load_dotenv()
+print(os.getenv('CONNECTION_STRING'))
 
 
 def add2(n):
@@ -10,6 +16,20 @@ def add2(n):
     Add 2 to a number
     '''
     return n+2
+ 
+
+ 
+@app.route("/items", methods=["GET"])
+def get_data():
+    """set every page with 100 items """
+    page = int(request.args.get("page",0))
+    per_page = 100
+    if not page:
+        per_page = 0
+        page = 0
+    data = list(mongoConnect.collection.find().skip((page - 1) * per_page).limit(per_page))
+    print(page)
+    return jsonify(json.loads( json.dumps(data,default=str)))
 
 
 @app.route('/')
@@ -21,4 +41,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run('127.0.0.1', port=8000,  debug=True)
+    app.run('127.0.0.1', port=8000,   )
