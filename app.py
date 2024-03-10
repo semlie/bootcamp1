@@ -3,7 +3,7 @@ import os
 import json
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
-from db import mongoConnect
+from .db import mongoConnect
 
 app = Flask(__name__)
 

@@ -52,10 +52,9 @@ def display_dictionaries(data):
 # deleted_count = delete_document("65d246fe3d0f4ea8ab019a55")
 # print("Deleted document:", deleted_count)
 
-
-with open('data/filterd.pkl', 'rb') as f:
-    data = pickle.load(f)
-    display_dictionaries(data)
+# with open('data/filterd.pkl', 'rb') as f:
+#     data = pickle.load(f)
+#     display_dictionaries(data)
 
 
 
