@@ -44,7 +44,7 @@ def calculate_of_data(data):
             count_both+=1
             result_local.append('both')
         else:
-            count_other+1
+            count_other+=1
             result_local.append('other')
     print_of_count_data(count_selling,count_buying,count_both,count_other)
 
