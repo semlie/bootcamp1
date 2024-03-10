@@ -10,6 +10,15 @@ app = Flask(__name__)
 load_dotenv()
 print(os.getenv('CONNECTION_STRING'))
 
+
+def add2(n):
+    '''
+    Add 2 to a number
+    '''
+    return n+2
+ 
+
+ 
 @app.route("/items", methods=["GET"])
 def get_data():
     """set every page with 100 items """
