@@ -1,4 +1,5 @@
 # assuming your function is in app.py
+from bootcamp1.app import add2
 import unittest
 import os
 import sys
@@ -34,5 +35,4 @@ class TestAdd2(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    from app import add2
     unittest.main()
