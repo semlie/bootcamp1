@@ -12,6 +12,7 @@ result_mongo = []
 result_local = []
 
 def get_data_from_mongodb():
+    
     collection = db["items"]  
     data = collection.find()
     calculate_of_data(data)
@@ -95,6 +96,7 @@ def check_matching_errors(data):
 
 
 def count_buy_and_sale(data):
+    """count"""
     global result_mongo
     result_mongo = []
     count_sale = 0
