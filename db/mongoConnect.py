@@ -31,8 +31,7 @@ def read_documents(filter=None, projection=None):
 
 def update_document(document_id, update_data):
     """updating data"""
-    result = collection.update_one({"_id": ObjectId(document_id)},
-                                   
+    result = collection.update_one({"_id": ObjectId(document_id)},                                 
                                     {"$set": update_data},upsert=True
                                     )
     return result.modified_count
