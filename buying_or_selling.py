@@ -1,6 +1,11 @@
+"""
+This module fetches data from a MongoDB database, performs calculations on the data, 
+and checks for matching errors between inferred intents and provided categories.
+"""
+import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
-import os
+
 
 load_dotenv()
 
@@ -12,13 +17,14 @@ result_mongo = []
 result_local = []
 
 def get_data_from_mongodb():
-    
+    """Fetches data from MongoDB and applies necessary calculations."""
     collection = db["items"]  
     data = collection.find()
     calculate_of_data(data)
 
 
 def calculate_of_data(data):
+    """Calculates various counts based on the data."""
     global result_local
     result_local = []
     count_selling = 0
@@ -44,6 +50,7 @@ def calculate_of_data(data):
 
 
 def print_of_count_data(count_selling,count_buying,count_both,count_other):
+    """Prints the counts of different intents."""
     print("selling_me:",count_selling)
     print("buying_me:",count_buying)
     print("both buying and selling:",count_both)
@@ -52,6 +59,7 @@ def print_of_count_data(count_selling,count_buying,count_both,count_other):
 
 
 def check_intent(text):
+    """Checks the intent of the text."""
     intent_to_sell_words = [
         "Wts", "For sale", "Selling", "Offer", "Sell", "Available",
         "Clearing out", "Disposing of", "Offloading", "Auctioning",
@@ -85,6 +93,7 @@ def check_intent(text):
 
 
 def check_matching_errors(data):
+    """Checks for matching errors."""
     error_count = 0
     for item in data:
         content = item["massage_content"]
@@ -96,7 +105,7 @@ def check_matching_errors(data):
 
 
 def count_buy_and_sale(data):
-    """count"""
+    """Counts the number of items for sale and buy."""
     global result_mongo
     result_mongo = []
     count_sale = 0
@@ -119,13 +128,12 @@ def count_buy_and_sale(data):
 get_data_from_mongodb()
 
 # Calculate matching errors
-error_count = check_matching_errors(db["items"].find())
+ERROR_SUM = check_matching_errors(db["items"].find())
 total_items = db["items"].count_documents({})
-print("Total items:", total_items)
-print("Matching errors:", error_count)
-print("Percentage of matching errors: {:.2f}%".format((error_count / total_items) * 100))
+print("total items:", total_items)
+print("matching errors:", ERROR_SUM)
+print(f"Percentage of matching errors: {((ERROR_SUM / total_items) * 100):.2f}%")
 count_buy_and_sale(db["items"].find())
 
 print("result_local:",len(result_local))
 print("result_mongo:",len(result_mongo))
-
