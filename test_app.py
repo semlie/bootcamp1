@@ -1,12 +1,6 @@
-# assuming your function is in app.py
+"""import"""
 import unittest
-import os
-import sys
-from .app import add2
-
-DIR = os.path.dirname(os.path.dirname(__file__))  # The repo root directory
-sys.path.append(DIR)
-
+from .app import add2  # Import add2 directly without using relative import
 
 class TestAdd2(unittest.TestCase):
     '''
