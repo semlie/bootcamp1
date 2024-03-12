@@ -1,6 +1,6 @@
 """import"""
 import unittest
-from app import add2  # Import add2 directly without using relative import
+from .app import add2  # Import add2 directly without using relative import
 
 class TestAdd2(unittest.TestCase):
     '''
