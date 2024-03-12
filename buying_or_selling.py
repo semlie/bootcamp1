@@ -1,10 +1,8 @@
-"""
-This module fetches data from a MongoDB database, performs calculations on the data, 
-and checks for matching errors between inferred intents and provided categories.
-"""
 import os
+
 from dotenv import load_dotenv
 from pymongo import MongoClient
+from bson import ObjectId
 
 
 load_dotenv()
@@ -12,13 +10,13 @@ load_dotenv()
 mongo_connection = os.environ.get("MONGO_DB")
 client = MongoClient(mongo_connection)
 db = client.get_database()
+collection = db["items"]  # Assuming the collection name is "items"
 
 result_mongo = []
 result_local = []
 
 def get_data_from_mongodb():
     """Fetches data from MongoDB and applies necessary calculations."""
-    collection = db["items"]  
     data = collection.find()
     calculate_of_data(data)
 
@@ -34,27 +32,37 @@ def calculate_of_data(data):
     for document in data:
         content = document["massage_content"]
         intent = check_intent(content)
-        if(intent=="selling"):
-            count_selling+=1
+        if intent == "selling":
+            count_selling += 1
             result_local.append('sale')
-        elif(intent=="buying"):
-            count_buying+=1
+        elif intent == "buying":
+            count_buying += 1
             result_local.append('buy')
-        elif(intent=="both buying and selling"):
-            count_both+=1
+        elif intent == "both buying and selling":
+            count_both += 1
             result_local.append('both')
         else:
-            count_other+=1
+            count_other += 1
             result_local.append('other')
-    print_of_count_data(count_selling,count_buying,count_both,count_other)
+    print_of_count_data(count_selling, count_buying, count_both, count_other)
+
+def update_mongo(document_id, inferred_intent):
+    """Update MongoDB document with inferred intent and buy/sale."""
+    query = {"_id": ObjectId(document_id)}  # Convert document_id to ObjectId
+    update = {"$set": {"type": "buy"}}
+    if inferred_intent == "selling":
+        update["$set"]["type"] = "sale"
+    update["$unset"] = {"inferred_intent": ""}
+    collection.update_one(query, update, upsert=True)
 
 
-def print_of_count_data(count_selling,count_buying,count_both,count_other):
+
+def print_of_count_data(count_selling, count_buying, count_both, count_other):
     """Prints the counts of different intents."""
-    print("selling_me:",count_selling)
-    print("buying_me:",count_buying)
-    print("both buying and selling:",count_both)
-    print("other:",count_other)
+    print("selling_me:", count_selling)
+    print("buying_me:", count_buying)
+    print("both buying and selling:", count_both)
+    print("other:", count_other)
     print("--------------")
 
 
@@ -69,13 +77,13 @@ def check_intent(text):
     intent_to_buy_words = [
         "Wtb", "Looking for", "Seeking", "Buying", "Wanting", "Purchasing",
         "In search of", "Interested in", "Acquiring", "Needing", "Hunting for",
-        "Requesting", "Shopping for", "Hoping to buy", "Wanting to acquire","buy",
-        "Looking to buy","purchase"
+        "Requesting", "Shopping for", "Hoping to buy", "Wanting to acquire", "buy",
+        "Looking to buy", "purchase"
     ]
     both_intent_words = [
         "Trading", "Bartering", "Exchange", "Swap", "Trade-in", "Deal",
         "Negotiating", "Transaction", "Dealings", "Business", "Commerce",
-        "Market", "Exchange", "Offer", "Bid","For sale or buying","Selling or buying"
+        "Market", "Exchange", "Offer", "Bid", "For sale or buying", "Selling or buying"
     ]
 
     intent_to_sell = any(word.lower() in text.lower() for word in intent_to_sell_words)
@@ -113,27 +121,30 @@ def count_buy_and_sale(data):
 
     for item in data:
         categoty = item["category"]
-        if(categoty=="sale"):
-            count_sale+=1
+        if categoty == "sale":
+            count_sale += 1
             result_mongo.append('sale')
-        elif(categoty=="buy"):
-            count_buy+=1
+        elif categoty == "buy":
+            count_buy += 1
             result_mongo.append('buy')
         else:
             result_mongo.append('other')
-    print("sale_mongo:",count_sale)
-    print("buy_mongo:",count_buy)
+    print("sale_mongo:", count_sale)
+    print("buy_mongo:", count_buy)
+
 
 # Fetch data from MongoDB and apply checks
-get_data_from_mongodb()
+# 
 
 # Calculate matching errors
-ERROR_SUM = check_matching_errors(db["items"].find())
-total_items = db["items"].count_documents({})
-print("total items:", total_items)
-print("matching errors:", ERROR_SUM)
-print(f"Percentage of matching errors: {((ERROR_SUM / total_items) * 100):.2f}%")
-count_buy_and_sale(db["items"].find())
+# ERROR_SUM = check_matching_errors(collection.find())
+# total_items = collection.count_documents({})
+# print("total items:", total_items)
+# print("matching errors:", ERROR_SUM)
+# print(f"Percentage of matching errors: {((ERROR_SUM / total_items) * 100):.2f}%")
+# count_buy_and_sale(collection.find())
 
-print("result_local:",len(result_local))
-print("result_mongo:",len(result_mongo))
+# print("result_local:", len(result_local))
+# print("result_mongo:", len(result_mongo))
+
+
