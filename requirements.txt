@@ -1,2 +1,5 @@
 flask
 pymongo
+python-dotenv
+pandas
+configparser
