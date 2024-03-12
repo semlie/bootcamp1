@@ -1,11 +1,11 @@
 """imports"""
 import os
 import json
-from dotenv import load_dotenv
 from flask import Flask, jsonify, request
+from dotenv import load_dotenv
+import buying_or_selling as bos
 from .db import mongoConnect
 
-import buying_or_selling as bos
 app = Flask(__name__)
 
 load_dotenv()
