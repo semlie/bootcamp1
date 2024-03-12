@@ -3,7 +3,7 @@ import os
 import json
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
-import buying_or_selling as bos
+import buying_or_selling 
 from .db import mongoConnect
 
 app = Flask(__name__)
@@ -44,11 +44,11 @@ def index():
 @app.route('/buy_or_sale')
 def buy_or_sale():
     '''Update MongoDB documents based on inferred intents.'''
-    data =  bos.collection.find()  # Assuming JSON data is sent in the request
+    data =  buying_or_selling.collection.find()  # Assuming JSON data is sent in the request
     for item in data:
         content = item["massage_content"]
-        inferred_intent = bos.check_intent(content)
-        bos.update_mongo(item["_id"], inferred_intent)
+        inferred_intent = buying_or_selling.check_intent(content)
+        buying_or_selling.update_mongo(item["_id"], inferred_intent)
     return jsonify({"message": "Updated successfully"})
 
 
