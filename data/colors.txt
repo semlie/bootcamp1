@@ -1,0 +1,196 @@
+Black
+White
+Silver
+Gold
+Space Gray
+Rose Gold
+Midnight Black
+Blue
+Red
+Green
+Pink
+Purple
+Yellow
+Coral
+Azure
+Mystic Bronze
+Graphite
+Emerald Green
+Sunset Orange
+Cloud White
+Ocean Blue
+Cosmic Gray
+Aura Glow
+Phantom Black
+Frost White
+Electric Blue
+Lavender Purple
+Pearl White
+Titanium Gray
+Platinum
+Forest Green
+Aurora
+Ceramic Black
+Royal Blue
+Glacier White
+Mint Green
+Sunrise Red
+Sapphire Blue
+Burgundy Red
+Amber Brown
+Carbon Black
+Deepsea Blue
+Polar White
+Sonic Blue
+Blush Gold
+Alpine Green
+Copper
+Lunar Gray
+Shadow Black
+Flamingo Pink
+Brilliant Blue
+Topaz Blue
+Crimson Red
+Opal Blue
+Lagoon Blue
+Ruby Red
+Peacock Blue
+Ice Blue
+Champagne Gold
+Moonlight Silver
+Marble White
+Pearl Black
+Crystal Black
+Arctic Silver
+Rose Pink
+Anthracite Gray
+Ceramic White
+Ruby Pink
+Azure Blue
+Sunburst Gold
+Royal Gold
+Phantom Blue
+Amethyst Purple
+Solar Red
+Forest Mist Green
+Cloud Blue
+Flame Red
+Topaz Gold
+Rosewood Red
+Quartz Pink
+Sapphire Black
+Metallic Blue
+Midnight Blue
+Brilliant Black
+Peach Gold
+Platinum Silver
+Pebble Blue
+Sunset Gold
+Nebula Purple
+Arctic Blue
+Bordeaux Red
+Mocha Brown
+Deep Indigo
+Carbon Fiber
+Fog Gray
+Bronze
+Cherry Red
+Metallic Red
+BLACK
+WHITE
+SILVER
+GOLD
+SPACE GRAY
+ROSE GOLD
+MIDNIGHT BLACK
+BLUE
+RED
+GREEN
+PINK
+PURPLE
+YELLOW
+CORAL
+AZURE
+MYSTIC BRONZE
+GRAPHITE
+EMERALD GREEN
+SUNSET ORANGE
+CLOUD WHITE
+OCEAN BLUE
+COSMIC GRAY
+AURA GLOW
+PHANTOM BLACK
+FROST WHITE
+ELECTRIC BLUE
+LAVENDER PURPLE
+PEARL WHITE
+TITANIUM GRAY
+PLATINUM
+FOREST GREEN
+AURORA
+CERAMIC BLACK
+ROYAL BLUE
+GLACIER WHITE
+MINT GREEN
+SUNRISE RED
+SAPPHIRE BLUE
+BURGUNDY RED
+AMBER BROWN
+CARBON BLACK
+DEEPSEA BLUE
+POLAR WHITE
+SONIC BLUE
+BLUSH GOLD
+ALPINE GREEN
+COPPER
+LUNAR GRAY
+SHADOW BLACK
+FLAMINGO PINK
+BRILLIANT BLUE
+TOPAZ BLUE
+CRIMSON RED
+OPAL BLUE
+LAGOON BLUE
+RUBY RED
+PEACOCK BLUE
+ICE BLUE
+CHAMPAGNE GOLD
+MOONLIGHT SILVER
+MARBLE WHITE
+PEARL BLACK
+CRYSTAL BLACK
+ARCTIC SILVER
+ROSE PINK
+ANTHRACITE GRAY
+CERAMIC WHITE
+RUBY PINK
+AZURE BLUE
+SUNBURST GOLD
+ROYAL GOLD
+PHANTOM BLUE
+AMETHYST PURPLE
+SOLAR RED
+FOREST MIST GREEN
+CLOUD BLUE
+FLAME RED
+TOPAZ GOLD
+ROSEWOOD RED
+QUARTZ PINK
+SAPPHIRE BLACK
+METALLIC BLUE
+MIDNIGHT BLUE
+BRILLIANT BLACK
+PEACH GOLD
+PLATINUM SILVER
+PEBBLE BLUE
+SUNSET GOLD
+NEBULA PURPLE
+ARCTIC BLUE
+BORDEAUX RED
+MOCHA BROWN
+DEEP INDIGO
+CARBON FIBER
+FOG GRAY
+BRONZE
+CHERRY RED
+METALLIC RED

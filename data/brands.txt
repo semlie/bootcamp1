@@ -1,0 +1,200 @@
+Apple
+Samsung
+Huawei
+Xiaomi
+OnePlus
+Oppo
+Vivo
+Google Pixel
+Sony Xperia
+Motorola
+LG
+HTC
+Nokia
+Asus
+BlackBerry
+Lenovo
+ZTE
+Meizu
+Realme
+Honor
+Sharp
+Panasonic
+TCL
+Alcatel
+LeEco
+Ulefone
+Elephone
+Coolpad
+Gionee
+Micromax
+Infinix
+Tecno
+iQOO
+Redmi
+Poco
+Itel
+Doogee
+Cubot
+Vernee
+Vivo
+Umidigi
+Wileyfox
+Energizer
+Razer
+Nextbit
+Essential
+Fairphone
+Black Shark
+Sharp Aquos
+Bluboo
+Wiko
+Meitu
+Vodafone
+YotaPhone
+Sirin Labs
+Vertu
+CAT (Caterpillar)
+Google Nexus
+HP
+Dell
+Acer
+Fujitsu
+Toshiba
+Kyocera
+Casio
+NEC
+Gigabyte
+Panasonic Toughbook
+Sonim
+RugGear
+Doogee
+Homtom
+F(x)tec
+Planet Computers
+Jolla
+Fairphone
+Unihertz
+Energizer
+NuAns
+Punkt
+Zebra
+Bullitt
+Crosscall
+Land Rover Explore
+Marshall
+Palm
+Shift Phones
+Sugar
+Turing
+Silent Circle
+Saygus
+Obi Worldphone
+Wileyfox
+Archos
+bq
+Emporia
+Gigaset
+Hisense
+Kodak
+Yotaphone
+APPLE
+SAMSUNG
+HUAWEI
+XIAOMI
+ONEPLUS
+OPPO
+VIVO
+GOOGLE PIXEL
+SONY XPERIA
+MOTOROLA
+LG
+HTC
+NOKIA
+ASUS
+BLACKBERRY
+LENOVO
+ZTE
+MEIZU
+REALME
+HONOR
+SHARP
+PANASONIC
+TCL
+ALCATEL
+LEECO
+ULEFONE
+ELEPHONE
+COOLPAD
+GIONEE
+MICROMAX
+INFINIX
+TECNO
+IQOO
+REDMI
+POCO
+ITEL
+DOOGEE
+CUBOT
+VERNEE
+VIVO
+UMIDIGI
+WILEYFOX
+ENERGIZER
+RAZER
+NEXTBIT
+ESSENTIAL
+FAIRPHONE
+BLACK SHARK
+SHARP AQUOS
+BLUBOO
+WIKO
+MEITU
+VODAFONE
+YOTAPHONE
+SIRIN LABS
+VERTU
+CAT (CATERPILLAR)
+GOOGLE NEXUS
+HP
+DELL
+ACER
+FUJITSU
+TOSHIBA
+KYOCERA
+CASIO
+NEC
+GIGABYTE
+PANASONIC TOUGHBOOK
+SONIM
+RUGGEAR
+DOOGEE
+HOMTOM
+F(X)TEC
+PLANET COMPUTERS
+JOLLA
+FAIRPHONE
+UNIHERTZ
+ENERGIZER
+NUANS
+PUNKT
+ZEBRA
+BULLITT
+CROSSCALL
+LAND ROVER EXPLORE
+MARSHALL
+PALM
+SHIFT PHONES
+SUGAR
+TURING
+SILENT CIRCLE
+SAYGUS
+OBI WORLDPHONE
+WILEYFOX
+ARCHOS
+BQ
+EMPORIA
+GIGASET
+HISENSE
+KODAK
+YOTAPHONE
