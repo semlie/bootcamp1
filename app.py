@@ -3,7 +3,7 @@ import os
 import json
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
-import .buying_or_selling
+import buying_or_selling
 from .db import mongoConnect  # Import mongoConnect directly without using relative import
 
 app = Flask(__name__)
