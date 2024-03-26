@@ -4,3 +4,4 @@ python-dotenv
 pandas
 tqdm
 configparser
+scikit-learn
